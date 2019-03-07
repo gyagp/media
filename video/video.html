@@ -1,0 +1,27 @@
+<body/>
+
+<script>
+  videos = [
+    "h264-1920x1080-60fps.mp4",
+    "h264-7680x4320-30fps.mp4",
+    "vp8-1920x1080-60fps.webm",
+    "vp8-3840x2160-60fps.webm",
+    "vp8-7680x4320-30fps.webm",
+    "vp9-1920x1080-60fps.webm",
+    "vp9-3840x2160-60fps.webm",
+    "vp9-7680x4320-60fps.webm",
+  ];
+
+  var str = "Click below link to play the video";
+  str = str.bold();
+  document.write(str);
+
+  for (video of videos) {
+    document.write("<br>")
+    var a = document.createElement("a");
+    a.target = '_blank';
+    a.href = "play.html?url=" + video;
+    a.text = video;
+    document.body.appendChild(a);
+  }
+</script>

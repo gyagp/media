@@ -1,0 +1,25 @@
+<body/>
+
+<script>
+  function getParamByName(name, url) {
+    if (!url)
+      url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)", "i");
+    var results = regex.exec(url);
+    if (!results)
+      return null;
+    if (!results[2])
+      return "";
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+
+  var video = document.createElement('video');
+  video.controls = true;
+  video.loop = true;
+  video.autoplay = true;
+  video.width = screen.width;
+  video.height = screen.height;
+  video.src = getParamByName("url");
+  document.body.appendChild(video);
+</script>
